@@ -1,0 +1,19 @@
+[Unit]
+Description=Medication Reminder Timer — 3x Daily
+Requires=med-reminder.service
+
+[Timer]
+# Fire at 12:00 PM, 6:00 PM, and 12:00 AM every day
+# Adjust these times to match YOUR medication schedule
+OnCalendar=*-*-* 12:00:00
+OnCalendar=*-*-* 18:00:00
+OnCalendar=*-*-* 00:00:00
+
+# If the computer was off at trigger time, fire within 5 min of next boot
+Persistent=true
+
+# Small random delay (up to 30s) to avoid exact-second load spikes
+RandomizedDelaySec=30
+
+[Install]
+WantedBy=timers.target

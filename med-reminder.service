@@ -1,0 +1,7 @@
+[Unit]
+Description=Medication Reminder Image
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/med-reminder.sh
+
